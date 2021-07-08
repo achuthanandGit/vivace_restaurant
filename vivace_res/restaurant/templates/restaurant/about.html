@@ -1,0 +1,28 @@
+{% load static %}
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-5 align-self-center d-flex flex-column">
+        <img src="{% static 'img/about/about.jpg' %}" class="img-responsive">
+      </div>
+      <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
+        <div class="content">
+            <h3>Our Story</strong></h3>
+            {% if ourStory %}
+              {% for item in ourStory %}
+                <p class="text-justify">
+                  {{ item }}
+                </p>
+              {% endfor %}
+            {% endif %}
+            {% if awards %}
+              <h3>Awards & Nominations</strong></h3>
+              <ul>
+                {% for item in awards %}
+                <li><i class="bx bx-check-double"></i> {{ item.name }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>

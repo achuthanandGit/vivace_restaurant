@@ -1,0 +1,2 @@
+1. To show description in multiple paragraphs, start each paragraph in new line while saving
+2. To show list items as points, provide each point in new line while saving

@@ -1,0 +1,50 @@
+{% load static %}
+<div class="container">
+
+    <div class="section-title">
+      <h2>Book a <span>Table</span></h2>
+    </div>
+
+    <form id="book-form" method="post" role="form" class="php-email-form">
+      <ul id="book-validation-list" class="d-none validate"></ul>
+      <div class="form-row">
+        {% csrf_token %}
+        <div class="col-lg-4 col-md-6 form-group">
+          <input type="text" name="name" class="form-control" id="book-name" placeholder="Your Name">
+        </div>
+        <div class="col-lg-4 col-md-6 form-group">
+          <input type="email" class="form-control" name="email" id="book-mail" placeholder="Your Email">
+        </div>
+        <div class="col-lg-4 col-md-6 form-group">
+          <input type="text" class="form-control" name="phone" id="book-phone" placeholder="Your Phone">
+        </div>
+        <div class="col-lg-4 col-md-6 form-group">
+          <input type="date" name="date" class="form-control" id="book-date" placeholder="Date">
+        </div>
+        <div class="col-lg-4 col-md-6 form-group">
+          <input type="text" class="form-control" name="time" id="book-time" placeholder="Time">
+        </div>
+        <div class="col-lg-4 col-md-6 form-group">
+          <input type="number" class="form-control" name="people" id="book-people" placeholder="# of people" min="1" max="50" value="1">
+        </div>
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" name="message" id="book-message" rows="5" placeholder="Message"></textarea>
+        <div class="validate"></div>
+      </div>
+      <div class="mb-3">
+        <div id="book-response-msg" class="alert d-none" role="alert"></div>
+      </div>
+      {% if restaurant.is_reservation_open %}
+        <div class="text-center"><button id="btn-submit-book" type="submit">Confirm Book</button></div>
+      {% else %}
+      <div class="m-2">
+        <div id="reservation-msg" class="alert alert-success" role="alert">
+          Booking closed now. Please come later.
+        </div>
+      </div>
+      {% endif %}
+    </form>
+    
+
+</div>
